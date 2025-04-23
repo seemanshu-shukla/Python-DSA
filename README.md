@@ -1,7 +1,7 @@
 # Searching and Sorting Algorithm:
 
 ## 1. Arrays: 
-### Refer: [Notes\Searching_And_Sorting_Algorithm\Introduction_to_arrays.pdf](Notes\Searching_And_Sorting_Algorithm\Introduction_to_arrays.pdf)
+### Refer: [Notes\Searching_And_Sorting_Algorithm\Introduction_to_arrays.pdf](Notes/Searching_And_Sorting_Algorithm/Introduction_to_arrays.pdf)
 ### Code:
     ```
     l1 = []
