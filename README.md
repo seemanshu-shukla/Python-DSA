@@ -3,23 +3,23 @@
 ## 1. Arrays: 
 ### Refer: [Notes/Searching_And_Sorting_Algorithm/Introduction_to_arrays.pdf](Notes/Searching_And_Sorting_Algorithm/Introduction_to_arrays.pdf)
 ### Code:
-    ```
-    l1 = []
+```ruby
+l1 = []
 
-    l1.append(1)
-    l1.append(1.5)
-    l1.append('python')
+l1.append(1)
+l1.append(1.5)
+l1.append('python')
 
-    print(l1[0])
+print(l1[0])
 
 
-    import array ## Since array is not builtin data type or method in Python we are importing array library to implement it
+import array ## Since array is not builtin data type or method in Python we are importing array library to implement it
 
-    arr = array.array('i',[1,2,3,4,5])  ## 'i' represents data structure of array which here is interger
-    print(arr)
-    arr[0] = 10
-    print(arr)
-    ```
+arr = array.array('i',[1,2,3,4,5])  ## 'i' represents data structure of array which here is interger
+print(arr)
+arr[0] = 10
+print(arr)
+```
 
 ## 2. Linear Search Algorithm:
 ### Refer: [Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf](Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf)
@@ -39,7 +39,7 @@
 2. `linear_search([1, 1, 2, 1], 1)` should return `0`
 3. `linear_search([], 5)` should return `-1`
 4. `linear_search([4, 2, 8], 6)` should return `-1`
-    ```
+    ```ruby
     def linear_search(arr, target):
         # TODO: Implement this function
         pass
@@ -58,7 +58,7 @@
 ## 3.  Binary Search Algorithm:
 ### Refer: [Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf](Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf)
 ### Code:
-    ```
+    ```ruby
     # print(5//2)
     def binary_search(arr,target):
         size = len(arr)
@@ -107,7 +107,7 @@ You are given a list of integers. Write a Python function to sort the list in as
 2. **Input**: `lst = [5, 1, 4, 2, 8]`
    **Output**: `[1, 2, 4, 5, 8]`
 
-    ```
+    ```ruby
     def bubble_sort(lst):
         # Your code goes here
         pass
@@ -149,7 +149,7 @@ You are given a list of integers. Write a Python function to sort the list in as
 2. **Input:** `lst = [29, 10, 14, 37, 13]`  
    **Output:** `[10, 13, 14, 29, 37]`
 
-    ```
+    ```ruby
     def selection_sort(lst):
         # Your code goes here
         pass
