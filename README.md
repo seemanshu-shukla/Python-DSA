@@ -89,7 +89,7 @@
 
 # Sorting Algorithm:
 
-## Bubble Sort Algorithm:
+## 1. Bubble Sort Algorithm:
 ### Refer: [Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf](Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf)
 ### Coding Exercise 55: Bubble Sort Algorithm
 
@@ -123,5 +123,53 @@ You are given a list of integers. Write a Python function to sort the list in as
         return lst
     
     ```
+
+## **NOTE**:
+- In Bubble Sort with every pass, we were getting the respective largest elements (1st largest/2nd largest/3rd largest..) at their right position.
+- Whereas, in Selection Sort we try to get the respective smallest elements (1st smallest/2nd smallest/3rd smallest..) at their right position.
+
+## 2. Selection Sort Algorithm:
+### Refer: [Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf](Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf)
+### Coding Exercise 56: Selection Sort
+
+#### Selection Sort Algorithm
+
+You are given a list of integers. Write a Python function to sort the list in ascending order using the **Selection Sort** algorithm. Selection Sort works by repeatedly finding the minimum element from the unsorted part of the list and swapping it with the first element of the unsorted part.
+
+**Parameters:**
+- `lst` (List of integers): The list to be sorted.
+
+**Returns:**
+- A list of integers sorted in ascending order.
+
+**Example:**
+1. **Input:** `lst = [64, 25, 12, 22, 11]`  
+   **Output:** `[11, 12, 22, 25, 64]`
+
+2. **Input:** `lst = [29, 10, 14, 37, 13]`  
+   **Output:** `[10, 13, 14, 29, 37]`
+
+    ```
+    def selection_sort(lst):
+        # Your code goes here
+        pass
+        min_ele = float('inf')
+    
+        for i in range(len(lst)-1): ## Number of passes
+            for j in range(i,len(lst)): ## Traversing in each pass
+                if lst[j] < min_ele:
+                    min_ele = lst[j]
+                    min_index = j
+                
+                else:
+                    continue
+                
+            lst[i],lst[min_index] = lst[min_index],lst[i]
+            min_ele = float('inf')
+            
+        return lst
+    
+    ```
+
 
 
