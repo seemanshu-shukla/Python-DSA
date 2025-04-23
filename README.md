@@ -1,4 +1,4 @@
-# Searching and Sorting Algorithm:
+# Searching Algorithm:
 
 ## 1. Arrays: 
 ### Refer: [Notes/Searching_And_Sorting_Algorithm/Introduction_to_arrays.pdf](Notes/Searching_And_Sorting_Algorithm/Introduction_to_arrays.pdf)
@@ -22,7 +22,7 @@
     ```
 
 ## 2. Linear Search Algorithm:
-### Refer: Notes\Searching_And_Sorting_Algorithm\Linear_Search_Algorithm.pdf
+### Refer: [Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf](Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf)
 ### Coding Exercise 54: Linear Search Algorithm
 #### **Problem Description:**
 
@@ -86,5 +86,42 @@
     result = binary_search(sorted_list,target)
     print(result)
     ```
+
+# Sorting Algorithm:
+
+## Bubble Sort Algorithm:
+### Refer: [Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf](Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf)
+### Coding Exercise 55: Bubble Sort Algorithm
+
+You are given a list of integers. Write a Python function to sort the list in ascending order using the **Bubble Sort** algorithm. Bubble Sort repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The process is repeated until the list is sorted.
+
+#### Parameters:
+- **lst** (List of integers): The list to be sorted.
+
+#### Returns:
+- A list of integers sorted in ascending order.
+
+#### Example:
+1. **Input**: `lst = [64, 34, 25, 12, 22, 11, 90]`
+   **Output**: `[11, 12, 22, 25, 34, 64, 90]`
+2. **Input**: `lst = [5, 1, 4, 2, 8]`
+   **Output**: `[1, 2, 4, 5, 8]`
+
+    ```
+    def bubble_sort(lst):
+        # Your code goes here
+        pass
     
+        for i in range(len(lst)-1): ## Number of passes
+            for j in range(0,len(lst)-1-i):  ## For iteration over the given pass. -1 due to bubble of 2 element and -i since after every pass largest element for that pass will be at the right pos
+                if lst[j] <= lst[j+1]:
+                    continue
+                else:
+                    lst[j],lst[j+1] = lst[j+1],lst[j]
+                
+            
+        return lst
     
+    ```
+
+
