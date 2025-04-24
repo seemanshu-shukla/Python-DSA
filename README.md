@@ -58,34 +58,34 @@ print(arr)
 ## 3.  Binary Search Algorithm:
 ### Refer: [Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf](Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf)
 ### Code:
-    ```ruby
-    # print(5//2)
-    def binary_search(arr,target):
-        size = len(arr)
-    
-        start =0
-        end = size-1
-    
-        while(start <= end):
-            mid = (start +end)//2
-    
-            if(arr[mid]==target):
-                return mid # Found the Target
-            
-            elif ( arr[mid] > target):
-                end = mid -1
-            elif(arr[mid]< target):
-                start = mid+1
-            
-        return -1
-    
-    
-    sorted_list = [10,23,35,45,50,70,85]
-    target = 85
-    
-    result = binary_search(sorted_list,target)
-    print(result)
-    ```
+```ruby
+# print(5//2)
+def binary_search(arr,target):
+    size = len(arr)
+
+    start =0
+    end = size-1
+
+    while(start <= end):
+        mid = (start +end)//2
+
+        if(arr[mid]==target):
+            return mid # Found the Target
+        
+        elif ( arr[mid] > target):
+            end = mid -1
+        elif(arr[mid]< target):
+            start = mid+1
+        
+    return -1
+
+
+sorted_list = [10,23,35,45,50,70,85]
+target = 85
+
+result = binary_search(sorted_list,target)
+print(result)
+```
 
 # Sorting Algorithm:
 
@@ -170,6 +170,52 @@ You are given a list of integers. Write a Python function to sort the list in as
         return lst
     
     ```
+## **Note:**
+- In Bubble and Selection sort, we perform swapping of elements to sort the given elements.
+- Whereas, Insertion sort is similar to how we arrange the numbered deck of cards in order while playing cards. So, here, instead of swapping, we perform shifting of elements(wrt index) for sorting the given elements.
 
+
+## 3. Insertion Sort Algorithm:
+### Refer: [Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf](Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf)
+### Coding Exercise 57: Insertion Sort
+
+#### Insertion Sort Algorithm
+
+You are given a list of integers. Write a Python function to sort the list in ascending order using the Insertion Sort algorithm. Insertion Sort works by building a sorted section of the list, one element at a time, by inserting each new element into its proper position within the already sorted section.
+
+#### Parameters:
+- `lst` (List of integers): The list to be sorted.
+
+#### Returns:
+- A list of integers sorted in ascending order.
+
+#### Example:
+1. **Input:** `lst = [12, 11, 13, 5, 6]`  
+   **Output:** `[5, 6, 11, 12, 13]`
+
+2. **Input:** `lst = [31, 41, 59, 26, 41, 58]`  
+   **Output:** `[26, 31, 41, 41, 58, 59]`
+
+    ```ruby
+    def insertion_sort(lst):
+        # Your code goes here
+        pass
+    
+        for current in range(1,len(lst)):
+            currentCard = lst[current]
+            currentPos = current-1 ## It will go from current-1 to 0
+            
+            while(currentPos >= 0):
+                if currentCard < lst[currentPos]:
+                    lst[currentPos+1] = lst[currentPos]
+                    currentPos = currentPos-1
+                
+                else:
+                    break
+            
+            lst[currentPos+1] = currentCard
+            
+        return lst
+    ```
 
 
