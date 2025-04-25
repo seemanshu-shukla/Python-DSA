@@ -218,4 +218,106 @@ You are given a list of integers. Write a Python function to sort the list in as
         return lst
     ```
 
+# Binary Search Practice Questions:
 
+## Coding Exercise 58: Count Negative Numbers in a Sorted Matrix
+
+**Asked in Companies:**
+- Samsung
+- Oyo
+- Groww
+- Dell
+
+**Description:**
+You are given an \\( m \\times n \\) matrix `grid` where each row and column is sorted in non-increasing order. Your task is to return the number of negative numbers present in the matrix.
+
+**Parameters:**
+- `grid` (List[List[int]]): A 2D matrix with dimensions \\( m \\times n \\), where each row and each column is sorted in non-increasing order.
+
+**Return Values:**
+- Integer: The count of negative numbers in the matrix.
+
+**Example:**
+
+```plaintext
+Input: grid = [[4, 3, 2, 1], [3, 2, 1, -1], [1, 1, -1, -2], [-1, -1, -2, -3]]
+Output: 7
+Explanation: There are 7 negative numbers in the matrix.
+
+Input: grid = [[3, 2], [1, 0]]
+Output: 0
+Explanation: There are no negative numbers in the matrix.
+```
+
+```ruby
+def countNegatives(grid):
+    # Implement your solution here
+    pass
+    
+    ## Sol^1 : Naive Approach Time Complexity O(m*n)
+    # countNegatives = 0
+    # for i in grid:
+    #     for j in i:
+    #         if j < 0:
+    #             countNegatives = countNegatives + 1
+    #         else:
+    #             continue
+            
+    # return countNegatives
+    
+    ## Sol^ 2: Using Binary Search for finding the first negative element in each row since then all elements which are right
+    ## which are right to it will be negative
+    ## Time Complexity O(m*(n/2))
+    
+    countNegatives = 0
+    NegativeFound = False
+    
+    for i in grid:
+        start = 0
+        end = len(i)-1
+        while(start <= end):
+            mid = (start+end)//2
+            if i[mid] < 0:
+                NegativeFound = True
+                FirstNegative = mid
+                # countNegatives = countNegatives + len(i[mid:])  ## right side all will be < 0 but not sure after left side
+                end = mid-1 ## since not sure about presence of negative elements on left side
+                
+            else:
+                ## left side will be > 0 and need to check right side
+                start = mid+1
+            
+        if NegativeFound:
+            countNegatives = countNegatives + len(i[FirstNegative:])  ## right side all will be < 0 but not sure after left side
+            NegativeFound = False
+        else:
+            continue
+        
+    return countNegatives
+                
+                
+## Mayank's Approach:
+# def countNegatives(grid):
+#     """
+#     Count the number of negative numbers in a matrix sorted in non-increasing order
+#     both row-wise and column-wise using binary search.
+#     """
+#     def count_negatives_in_row(row):
+#         """
+#         Use binary search to count the number of negative numbers in a row.
+#         """
+#         left, right = 0, len(row)
+#         while left < right:
+#             mid = (left + right) // 2
+#             if row[mid] < 0:
+#                 right = mid
+#             else:
+#                 left = mid + 1
+#         return len(row) - left
+    
+#     total_negatives = 0
+#     for row in grid:
+#         total_negatives += count_negatives_in_row(row)
+    
+#     return total_negatives
+```
