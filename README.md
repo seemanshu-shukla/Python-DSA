@@ -321,3 +321,66 @@ def countNegatives(grid):
     
 #     return total_negatives
 ```
+
+## Coding Excerise 59: Find smallest letter greater than target
+![image](https://github.com/user-attachments/assets/f8a4dfdf-3b8b-4580-907d-8e8c58578642)
+```ruby
+def next_greatest_letter(letters, target):
+    """
+    Return the smallest character in letters that is lexicographically greater than target.
+
+    Parameters:
+    letters (List[char]): Sorted array of characters.
+    target (char): The target character.
+
+    Returns:
+    char: The smallest character greater than target, or the first character if no such character exists.
+    """
+    # Implement the function logic
+    pass
+
+    start = 0
+    end = len(letters)-1
+    maxFound = False
+    
+    while(start <= end):
+        mid = (start+end)//2
+        if letters[mid] > target:
+            next_max = letters[mid]
+            maxFound = True
+            end = mid-1
+        
+        else:
+            start = mid+1
+            
+    
+    if maxFound:
+        return next_max
+        
+    else:
+        return letters[0]
+        
+    
+    ## Mayank's Sol^
+    ## Hint:
+    ## 1. Use binary search to find the letter optimally.
+    ## 2. Use the advantage of sorted array.
+    ## 3.If target is larger than or equal to the last character in letters, you should return the first letter in the array because the array is circular.
+    
+    # # Binary search approach to find the smallest character greater than the target
+    # left, right = 0, len(letters)
+    
+    # # Use binary search to find the correct position
+    # while left < right:
+    #     mid = left + (right - left) // 2
+        
+    #     # If the mid character is greater than the target, it could be a potential answer
+    #     if letters[mid] > target:
+    #         right = mid
+    #     else:
+    #         left = mid + 1
+    
+    # # If 'left' is out of bounds, return the first character (circular condition)
+    # return letters[left % len(letters)]
+```
+
