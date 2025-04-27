@@ -3,7 +3,7 @@
 ## 1. Arrays: 
 ### Refer: [Notes/Searching_And_Sorting_Algorithm/Introduction_to_arrays.pdf](Notes/Searching_And_Sorting_Algorithm/Introduction_to_arrays.pdf)
 ### Code:
-```ruby
+```python
 l1 = []
 
 l1.append(1)
@@ -39,7 +39,7 @@ print(arr)
 2. `linear_search([1, 1, 2, 1], 1)` should return `0`
 3. `linear_search([], 5)` should return `-1`
 4. `linear_search([4, 2, 8], 6)` should return `-1`
-    ```ruby
+    ```python
     def linear_search(arr, target):
         # TODO: Implement this function
         pass
@@ -58,7 +58,7 @@ print(arr)
 ## 3.  Binary Search Algorithm:
 ### Refer: [Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf](Notes/Searching_And_Sorting_Algorithm/Linear_Search_Algorithm.pdf)
 ### Code:
-```ruby
+```python
 # print(5//2)
 def binary_search(arr,target):
     size = len(arr)
@@ -107,7 +107,7 @@ You are given a list of integers. Write a Python function to sort the list in as
 2. **Input**: `lst = [5, 1, 4, 2, 8]`
    **Output**: `[1, 2, 4, 5, 8]`
 
-    ```ruby
+    ```python
     def bubble_sort(lst):
         # Your code goes here
         pass
@@ -149,7 +149,7 @@ You are given a list of integers. Write a Python function to sort the list in as
 2. **Input:** `lst = [29, 10, 14, 37, 13]`  
    **Output:** `[10, 13, 14, 29, 37]`
 
-    ```ruby
+    ```python
     def selection_sort(lst):
         # Your code goes here
         pass
@@ -196,7 +196,7 @@ You are given a list of integers. Write a Python function to sort the list in as
 2. **Input:** `lst = [31, 41, 59, 26, 41, 58]`  
    **Output:** `[26, 31, 41, 41, 58, 59]`
 
-    ```ruby
+    ```python
     def insertion_sort(lst):
         # Your code goes here
         pass
@@ -249,7 +249,7 @@ Output: 0
 Explanation: There are no negative numbers in the matrix.
 ```
 
-```ruby
+```python
 def countNegatives(grid):
     # Implement your solution here
     pass
@@ -322,9 +322,9 @@ def countNegatives(grid):
 #     return total_negatives
 ```
 
-## Coding Excerise 59: Find smallest letter greater than target
+## Coding Exercise 59: Find smallest letter greater than target
 ![image](https://github.com/user-attachments/assets/f8a4dfdf-3b8b-4580-907d-8e8c58578642)
-```ruby
+```python
 def next_greatest_letter(letters, target):
     """
     Return the smallest character in letters that is lexicographically greater than target.
@@ -383,4 +383,91 @@ def next_greatest_letter(letters, target):
     # # If 'left' is out of bounds, return the first character (circular condition)
     # return letters[left % len(letters)]
 ```
+
+## Coding Exercise 60: Find First and Last Position of Element in Sorted Array
+![image](https://github.com/user-attachments/assets/1a1dfa5b-cdc6-499a-ba45-a87f04cc5534)
+```python
+def searchRange(nums, target):
+    # Implement your solution here
+    pass
+
+    start = 0
+    end = len(nums)-1
+    
+    while(start <= end):
+        mid = (start+end)//2
+        if nums[mid] == target:
+            first = mid
+            last = mid
+            for i in range(last+1,len(nums)):  ## For Finding Last
+                if nums[i] == target:
+                    last = i
+                else:
+                    break ## Important since sorted at right side will be always greater hence no need to check further
+                
+            for j in range(first-1,0,-1): ## For Finding First
+                if nums[j] == target:
+                    first = j
+                    
+                else:
+                    break ## Important
+                
+            return [first,last]
+            
+        elif nums[mid] > target:
+            end = mid - 1
+            
+        else:
+            start = mid + 1
+            
+    return [-1,-1]
+    
+    ## Mayank's Sol^
+    ## Hint: Apply Binary Search Twice to find the First and Last occurence of the target
+    
+    # def findFirst(nums, target):
+    #     """
+    #     Find the first occurrence of the target using binary search.
+    #     """
+    #     left, right = 0, len(nums) - 1
+    #     result = -1
+    #     while left <= right:
+    #         mid = (left + right) // 2
+    #         if nums[mid] == target:
+    #             result = mid
+    #             right = mid - 1
+    #         elif nums[mid] < target:
+    #             left = mid + 1
+    #         else:
+    #             right = mid - 1
+    #     return result
+ 
+    # def findLast(nums, target):
+    #     """
+    #     Find the last occurrence of the target using binary search.
+    #     """
+    #     left, right = 0, len(nums) - 1
+    #     result = -1
+    #     while left <= right:
+    #         mid = (left + right) // 2
+    #         if nums[mid] == target:
+    #             result = mid
+    #             left = mid + 1
+    #         elif nums[mid] < target:
+    #             left = mid + 1
+    #         else:
+    #             right = mid - 1
+    #     return result
+ 
+    # start = findFirst(nums, target)
+    # end = findLast(nums, target)
+ 
+    # return [start, end]
+```
+
+## Coding Exercise 61: Minimum in Rotated Sorted Array
+
+
+
+## Coding Exercise 62: Search in Rotated Sorted Array
 
