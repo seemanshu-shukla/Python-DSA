@@ -1,7 +1,6 @@
-# List/Array Practice Questions:
-## Coding Exercise 63: Maximum Element in a List.
+# -> List/Array Practice Questions:
+## Coding Exercise 63: Maximum Element in a List
 <img width="915" height="918" alt="image" src="https://github.com/user-attachments/assets/4cb45908-2dcd-468a-82ec-3f9e0ff8d930" />
-
 ```python
 def find_max_element(lst):
     """
@@ -20,6 +19,311 @@ def find_max_element(lst):
     return max_ele
 
 ```
+
+## Coding Exercise 64: Sum of Elements in a List
+<img width="902" height="804" alt="image" src="https://github.com/user-attachments/assets/35981e08-228f-4352-b719-cf3280ff4957" />
+
+```python
+def sum_of_elements(lst):
+    """
+    Function to find the sum of all elements in the list.
+    :param lst: List[int] -> List of integers
+    :return: int -> The sum of all elements in the list
+    """
+    # TODO: Implement this function
+    pass
+
+    sum_lst = lst[0]
+    for i in range(1,len(lst)):
+        sum_lst = sum_lst + lst[i]
+        
+    return sum_lst
+```
+
+## Coding Exercise 65: Palindrome List (Handle Edge Case Len 1 and Empty List)
+<img width="815" height="844" alt="image" src="https://github.com/user-attachments/assets/6c55020a-d5bd-482a-a981-a8fbc769007c" />
+```python
+def is_palindrome(lst):
+    """
+    Function to check if a list is a palindrome.
+    :param lst: List[int] -> List of integers
+    :return: bool -> True if the list is a palindrome, False otherwise
+    """
+    # TODO: Implement this function
+    pass
+
+    ## Sol^ 1 using lst == lst[::-1]
+    
+    ## Sol^ 2 using 2 pointer approach
+    
+    # Edge clase
+    if lst == [] or len(lst) == 1:
+        return True
+    
+    start = 0
+    end = len(lst) -1
+    while(start <= end):
+        if lst[start] == lst[end]:
+            start = start + 1
+            end = end - 1
+        else:
+            return False
+            
+    return True
+```
+
+## Coding Exercise 66: Reverse a List
+<img width="789" height="874" alt="image" src="https://github.com/user-attachments/assets/91527482-1ada-40ec-9089-646697c65b5d" />
+```python
+def reverse_list(lst):
+    """
+    Function to reverse the order of elements in a list.
+    :param lst: List[int] -> List of integers
+    :return: List[int] -> The list with elements in reversed order
+    """
+    
+    pass
+
+    ## Sol^ 1 using slicing lst[::-1]
+    
+    ## Sol^ 2 l.sort(reverse=True) and sorted(l,reverse=True)
+    
+    ## Sol^ 3 using 2 pointer approach --> n/2 time complexity
+    start = 0
+    end = len(lst) - 1
+    while(start < end):
+        lst[start],lst[end] = lst[end],lst[start]
+        start = start + 1
+        end = end - 1
+        
+    return lst
+```
+
+## Coding Exercise 67: Rotate List(Handle Edge Case)
+<img width="787" height="928" alt="image" src="https://github.com/user-attachments/assets/08eb1c4b-29d6-4deb-8a41-017bbd1921f5" />
+```python
+def rotate_left(ARR, D):
+    """
+    Function to rotate the list to the left by D positions.
+    :param ARR: List[int] -> The list of integers
+    :param D: int -> The number of positions to rotate
+    :return: List[int] -> The list after rotation
+    """
+    # TODO: Implement this function
+    pass
+
+    ## delete first D elements and append it to the end of list
+    ## if D > len(ARR) then delete D%len(ARR) elements from front and append them
+    ## to the end of the list since upto D rotation ARR will be same then remainder 
+    ## will be the resultant rotation
+    
+    if ARR == [] or len(ARR) == 1:
+        return ARR
+        
+    if D > len(ARR):
+        D = D%len(ARR)
+        
+    res = ARR[D:]
+        
+    for i in range(D):
+        #res = res + list(ARR[i])
+        ## list(ARR[i]) --> wrong we might need to append it in the empty list
+        res.append(ARR[i])
+        
+    return res
+    
+    ## Sol^ 2 return ARR[D:] + ARR[:D]
+    
+## Here Time Complexity will be D instead of n
+```
+
+## Coding Exercise 68: Plus One in the Number
+<img width="725" height="887" alt="image" src="https://github.com/user-attachments/assets/713c6b89-463f-4817-a19c-930d7bc8effa" />
+```python
+def plus_one(digits):
+    """
+    Function to increment a large integer represented as a list of digits by one.
+    :param digits: List[int] -> List of digits representing the large integer
+    :return: List[int] -> The list representing the integer after incrementing
+    """
+    # TODO: Implement this function
+    pass
+
+    if digits[-1] < 9:
+        digits[-1] = digits[-1] + 1
+        return digits
+        
+    else:
+        end = len(digits) - 1
+        while(end >= 0):
+            if digits[end] == 9:
+                digits[end] = 0
+                end = end - 1
+                
+            else:
+                digits[end] = digits[end] + 1
+                return digits
+                
+        if end == -1:
+            return [1] + digits
+        else:
+            digits
+```
+
+## Coding Exercise 69: Missing Number(Sum Of First N Natural Numbers)
+<img width="725" height="823" alt="image" src="https://github.com/user-attachments/assets/90e0f139-7a7d-4e4d-a081-71623f5b5a62" />
+```python
+def find_missing_number(nums):
+    """
+    Function to find the missing number in the array.
+    :param nums: List[int] -> A list of distinct integers in the range [0, n]
+    :return: int -> The missing number in the range
+    """
+    # TODO: Implement this function
+    pass
+    
+    ## Sol^ 1: Naive or Brute Force Approach
+    
+    # for i in range(0,len(nums)+1):
+    #     if i not in nums:
+    #         return i
+    ## Time complexity n*n or O(n^2)
+            
+            
+    ## Sol^ 2: Using Sum of first n natural numbers
+    n=len(nums)
+    expected_sum = (n*(n+1))/2
+    actual_sum = sum(nums)  ## O(n) time complexity
+    
+    missing = expected_sum - actual_sum
+    return missing
+    
+    ## Time Complexity = O(n)
+```
+
+## Coding Exercise 70: Is Array Sorted?
+<img width="715" height="800" alt="image" src="https://github.com/user-attachments/assets/5cb26d41-825a-4b97-a387-515558349cdf" />
+```python
+def is_sorted(arr):
+    """
+    Function to check if the given array is sorted in non-decreasing order.
+    :param arr: List[int] -> A list of integers
+    :return: bool -> True if the array is sorted, False otherwise
+    """
+    # TODO: Implement this function
+    pass
+
+    ## The array is considered sorted if every element is less than or equal to the
+    ## next element.(Non-Decreasing or Ascending order)
+    
+    ## Naive Approach
+    for i in range(len(arr)-1):
+        if arr[i] <= arr[i+1]:
+            continue
+        else:
+            return False
+            
+    return True
+    
+    ## Time Complexity = O(n)
+```
+
+## Coding Exercise 71: Move Zeros (Two-pointer approach when both pointers are pointing to 0 value):
+<img width="702" height="833" alt="image" src="https://github.com/user-attachments/assets/8796f45e-c5d3-4217-b1db-b2d8683f1161" />
+```python
+# def move_zeroes(nums):
+#     """
+#     Function to move all 0's to the end of the array while maintaining the order of non-zero elements.
+#     :param nums: List[int] -> A list of integers
+#     :return: None -> The list is modified in place
+#     """
+#     # TODO: Implement this function
+#     pass
+
+    ## Sol^ 1: My custom logic
+    # zeros = []
+    # non_zeros = []
+    
+    # for i in nums:
+    #     if i == 0:
+    #         zeros.append(i)
+            
+    #     else:
+    #         non_zeros.append(i)
+    
+    # return non_zeros + zeros
+    
+    ## Sol^ 2: Two Pointer Approach
+    
+    # p1 = 0
+    # p2 = 1
+    # l_num = len(nums)
+    # if l_num == 0 or l_num == 1:
+    #     return nums
+        
+    # while(p1 < l_num-1 and p2 < l_num-1):
+    #     if nums[p1] == 0 and nums[p2] !=0:
+    #         nums[p1],nums[p2] = nums[p2],nums[p1]
+    #         p1 = p1 + 1
+    #         p2 = p2 +  1
+            
+    #     if nums[p1] != 0 and nums[p2] ==0:
+    #         p1 = p1 + 1
+    #         p2 = p2 + 1
+            
+    #     if nums[p1] == 0 and nums[p2] == 0:
+    #         p2 = p2 + 1
+            
+    #     if nums[p1] !=0 and nums[p2] != 0:
+    #         p1 = p1 + 2
+    #         p2 = p2 + 2
+            
+    # return nums
+    
+    ## Mayank's Sol^
+def move_zeroes(nums):
+    """
+    Function to move all 0's to the end of the array while maintaining the order of non-zero elements.
+    :param nums: List[int] -> A list of integers
+    :return: None -> The list is modified in place
+    """
+    non_zero_index = 0  # Pointer to track the position of the next non-zero element
+ 
+    # Move non-zero elements to the front of the list
+    for i in range(len(nums)):
+        if nums[i] != 0:
+            nums[non_zero_index] = nums[i]
+            non_zero_index += 1
+    
+    # Fill the remaining positions with zeros
+    while non_zero_index < len(nums):
+        nums[non_zero_index] = 0
+        non_zero_index += 1
+ 
+# Helper function to display the result (for debugging)
+def display_result(nums):
+    move_zeroes(nums)
+    print(nums)
+ 
+# # Example usage (can be removed)
+# # nums = [0, 1, 0, 3, 12]
+# # display_result(nums)  # Output should be [1, 3, 12, 0, 0]
+
+
+    # ## My Custom Sol^
+
+    # l = [0]*len(nums)
+    # zeros = 0
+    # non_zeros = 0
+
+    # for i in nums:
+    #     if i != 0:
+    #         non_zeros = non_zeros + 1
+    #         l[non_zeros-1] = i
+            
+    # return l
+```
+
 
 # Searching Algorithm:
 
