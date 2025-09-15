@@ -1,3 +1,26 @@
+# List/Array Practice Questions:
+## Coding Exercise 63: Maximum Element in a List.
+<img width="915" height="918" alt="image" src="https://github.com/user-attachments/assets/4cb45908-2dcd-468a-82ec-3f9e0ff8d930" />
+
+```python
+def find_max_element(lst):
+    """
+    Function to find the maximum element in a list.
+    :param lst: List[int] -> List of integers
+    :return: int -> The maximum element in the list
+    """
+    # TODO: Implement this function
+    pass
+
+    max_ele = lst[0]
+    for i in range(1,len(lst)):
+        if lst[i] > max_ele:
+            max_ele = lst[i]
+            
+    return max_ele
+
+```
+
 # Searching Algorithm:
 
 ## 1. Arrays: 
