@@ -470,6 +470,8 @@ def searchRange(nums, target):
 
 ## Coding Exercise 61: Minimum in Rotated Sorted Array
 
+## Coding Exercise 62: Search in Rotated Sorted Array
+
 
 # -> List/Array Practice Questions:
 ## Coding Exercise 63: Maximum Element in a List
@@ -865,6 +867,61 @@ def find_max_consecutive_ones(nums):
 
 ```
 
+## Coding Exercise 74: Maximum Subarray Sum
+<img width="713" height="776" alt="image" src="https://github.com/user-attachments/assets/092b9a1b-34cd-49d9-bfa2-e787cd5727a5" />
+
+```python
+def max_subarray_sum(arr):
+    """
+    Given an array of integers, find the maximum sum of any subarray.
+
+    Parameters:
+    arr (List[int]): List of integers.
+
+    Returns:
+    int: Maximum sum of any subarray.
+    """
+    # Implement the function
+    pass
+
+    ## Sol 1^: This Naive Approach Should Work But Due To High Time Complexity(O(n*n) This Is Not Executing 
+    
+    # max_sum = arr[0]
+    # if arr == []:
+    #     return 0
+        
+    # ## [-1,2] max sub array [-1] [-1,2] [2]  max = 2
+    # for i in range(1,len(arr)):
+    #     for j in range(i,len(arr)):
+    #         sub_sum = sum(arr[i:j+1])
+    #         if  sub_sum > max_sum:
+    #             max_sum = sub_sum
+    #             ## If asked about returning the max subsequence then hold the arr[i:j+1] as well when this cond is True
+    #         else:
+    #             continue
+            
+    # return max_sum
+            
+    
+    ## Sol^ 2: Use Kadane's Algorithm to find the maximum subarray sum efficiently
+    ## ie; maxEnding = max(maxEnding+arr[i], arr[i])
+    
+    if arr == []:  ## Given in question that return 0 if arr is empty
+        return 0
+    if len(arr) == 1:
+        return arr[0]
+        
+    res = arr[0]
+    maxEnding = arr[0]
+        
+
+    for i in range(1,len(arr)):
+        maxEnding = max(maxEnding+arr[i], arr[i])
+        
+        res = max(maxEnding, res)
+        
+    return res
+```
 
 
 
@@ -884,7 +941,4 @@ def find_max_consecutive_ones(nums):
 
 
 
-
-
-## Coding Exercise 62: Search in Rotated Sorted Array
 
