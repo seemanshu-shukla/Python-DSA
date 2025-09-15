@@ -1,6 +1,7 @@
 # -> List/Array Practice Questions:
 ## Coding Exercise 63: Maximum Element in a List
 <img width="915" height="918" alt="image" src="https://github.com/user-attachments/assets/4cb45908-2dcd-468a-82ec-3f9e0ff8d930" />
+
 ```python
 def find_max_element(lst):
     """
@@ -42,6 +43,7 @@ def sum_of_elements(lst):
 
 ## Coding Exercise 65: Palindrome List (Handle Edge Case Len 1 and Empty List)
 <img width="815" height="844" alt="image" src="https://github.com/user-attachments/assets/6c55020a-d5bd-482a-a981-a8fbc769007c" />
+
 ```python
 def is_palindrome(lst):
     """
@@ -74,6 +76,7 @@ def is_palindrome(lst):
 
 ## Coding Exercise 66: Reverse a List
 <img width="789" height="874" alt="image" src="https://github.com/user-attachments/assets/91527482-1ada-40ec-9089-646697c65b5d" />
+
 ```python
 def reverse_list(lst):
     """
@@ -101,6 +104,7 @@ def reverse_list(lst):
 
 ## Coding Exercise 67: Rotate List(Handle Edge Case)
 <img width="787" height="928" alt="image" src="https://github.com/user-attachments/assets/08eb1c4b-29d6-4deb-8a41-017bbd1921f5" />
+
 ```python
 def rotate_left(ARR, D):
     """
@@ -139,6 +143,7 @@ def rotate_left(ARR, D):
 
 ## Coding Exercise 68: Plus One in the Number
 <img width="725" height="887" alt="image" src="https://github.com/user-attachments/assets/713c6b89-463f-4817-a19c-930d7bc8effa" />
+
 ```python
 def plus_one(digits):
     """
@@ -172,6 +177,7 @@ def plus_one(digits):
 
 ## Coding Exercise 69: Missing Number(Sum Of First N Natural Numbers)
 <img width="725" height="823" alt="image" src="https://github.com/user-attachments/assets/90e0f139-7a7d-4e4d-a081-71623f5b5a62" />
+
 ```python
 def find_missing_number(nums):
     """
@@ -203,6 +209,7 @@ def find_missing_number(nums):
 
 ## Coding Exercise 70: Is Array Sorted?
 <img width="715" height="800" alt="image" src="https://github.com/user-attachments/assets/5cb26d41-825a-4b97-a387-515558349cdf" />
+
 ```python
 def is_sorted(arr):
     """
@@ -230,6 +237,7 @@ def is_sorted(arr):
 
 ## Coding Exercise 71: Move Zeros (Two-pointer approach when both pointers are pointing to 0 value):
 <img width="702" height="833" alt="image" src="https://github.com/user-attachments/assets/8796f45e-c5d3-4217-b1db-b2d8683f1161" />
+
 ```python
 # def move_zeroes(nums):
 #     """
@@ -322,6 +330,32 @@ def display_result(nums):
     #         l[non_zeros-1] = i
             
     # return l
+```
+
+## Coding Exercise 72: Intersection of two Lists (Careful with i not in intersection)
+<img width="724" height="865" alt="image" src="https://github.com/user-attachments/assets/a4427fc2-2b77-46fc-9b3c-01a4bbaf0d75" />
+
+```python
+def intersection(nums1, nums2):
+    """
+    Function to find the intersection of two integer arrays.
+    :param nums1: List[int] -> First array of integers
+    :param nums2: List[int] -> Second array of integers
+    :return: List[int] -> An array of unique integers present in both arrays
+    """
+    # TODO: Implement this function
+    pass
+
+    intersection = []
+    # for i in nums1:
+    #     if i not in intersection and i in nums2:
+    #         intersection.append(i)
+    
+    for i in nums2:
+        if i not in intersection and i in nums1:
+            intersection.append(i)
+            
+    return intersection
 ```
 
 
