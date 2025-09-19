@@ -1,3 +1,407 @@
+# String Practice Questions:
+## Coding Exercise 43: Reverse a string
+<img width="786" height="591" alt="image" src="https://github.com/user-attachments/assets/958622ac-57f6-4faf-a176-de193e4ccaf7" />
+
+```python
+def reverse_string(s):
+    """
+    Function to return the reversed version of the input string.
+    
+    Parameters:
+    s (str): The input string to be reversed.
+    
+    Returns:
+    str: The reversed string.
+    """
+    # Your code here
+    
+    ## Sol^ 1 using slicing
+    
+    # return s[::-1]
+    
+    ## Sol^ 2 using iterator from back
+    
+    r_string = ""
+    
+    for i in range(len(s)-1,-1,-1):
+        r_string = r_string + s[i]
+        
+    return r_string
+
+```
+
+## Coding Exercise 44: Count Vowels in a string
+<img width="807" height="613" alt="image" src="https://github.com/user-attachments/assets/7784ee77-7087-4040-a4c1-39109f850f19" />
+
+```python
+def count_vowels(s):
+    """
+    Function to count the number of vowels in the input string.
+    
+    Parameters:
+    s (str): The input string to check for vowels.
+    
+    Returns:
+    int: The count of vowels in the input string.
+    """
+    # Your code here
+    
+    vowels = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U']
+    
+    count = 0
+    for i in s:
+        if i in vowels:
+            count = count + 1
+            
+    return count
+
+```
+
+## Coding Exercise 45: Check for same strings
+<img width="805" height="626" alt="image" src="https://github.com/user-attachments/assets/d6fc5683-bb68-4051-baa3-18f098ae88cf" />
+
+```python
+def are_equal_strings(s, t):
+    """
+    Function to check if two strings are equal without using built-in functions.
+    
+    Parameters:
+    s (str): The first string.
+    t (str): The second string.
+    
+    Returns:
+    bool: True if the strings are equal, False otherwise.
+    """
+    # Your code here
+    
+    ## Sol^ by not using the comparison operator or inbuilt methods
+    
+    if len(s) != len(t):
+        return False
+        
+    counter = 0
+    for i in range(len(s)):
+        if s[i] != t[i]:
+            return False
+        else:
+            continue
+        
+    return True
+```
+
+## Coding Exercise 46: Check Palindrome (Important success_check flag)
+<img width="816" height="600" alt="image" src="https://github.com/user-attachments/assets/e7b73f39-a1f2-4ba2-a045-6fe5708fbf31" />
+
+```python
+def is_palindrome(s):
+    """
+    Function to check if the input string is a palindrome.
+    
+    Parameters:
+    s (str): The input string to check.
+    
+    Returns:
+    bool: True if the string is a palindrome, False otherwise.
+    """
+    # Your code here
+    
+    ## Sol^ 1:  
+    
+    ## You can remove non-alphanumeric characters and compare the string with its reverse to determine if it is a palindrome.
+    
+    ## "abc".isalpha(), "abc123".isalnum() and "123".isnumeric()
+    
+    
+    req_string = ""
+    
+    ## Eliminating unwanted spaces and punctuations
+    # for i in s:
+    #     # if i.isalpha() == False or i.isnumeric() == False:
+    #     if i.isalnum() == False:
+    #         continue
+    #     else:
+    #         req_string = req_string + i.lower()
+            
+    # if req_string == req_string[::-1]:
+    #     return True
+        
+    # else:
+    #     return False
+        
+        
+    ## Sol^ 2: That I implemented in Optum interview having O(n) TC and O(n) space complexity above one is O(n^2)
+    
+    ## 2 pointer approach
+    
+    ### Edge cases
+    if len(s) == 0 or len(s) == 1:
+        return True
+
+    start = 0
+    end = len(s)-1
+    success_check = False  ## This is very important flag consider @$@ --> Atleast 1 alnum match should be there
+    while(start<=end):
+        if s[start].lower().isalnum() == False and s[end].lower().isalnum() == False:
+            start += 1
+            end -= 1
+            
+        elif s[start].lower().isalnum() == True and s[end].lower().isalnum() == False:
+            end -= 1
+            
+        elif s[start].lower().isalnum() == False and s[end].lower().isalnum() == True:
+            start += 1
+            
+        elif s[start].lower().isalnum() == True and s[end].lower().isalnum() == True:
+            if s[start].lower() == s[end].lower():
+                success_check = True  ## Atleast one alnum matching is there
+                start += 1
+                end -= 1
+                
+            else:
+                return False
+    
+    if success_check:           
+        return True
+    else:
+        return False
+```
+
+## Coding Exercise 47: Count words in a string
+<img width="621" height="660" alt="image" src="https://github.com/user-attachments/assets/a25e6132-1176-468c-9f07-cbad1fb5a9a8" />
+
+```python
+def count_words(s):
+    """
+    Function to count the number of words in the input string.
+    
+    Parameters:
+    s (str): The input string to check for words.
+    
+    Returns:
+    int: The count of words in the input string.
+    """
+    # Your code here
+
+    ## A word is defined as a sequence of characters(not alphabets) separated by spaces.
+    
+    ele = s.split(" ")
+    count = 0
+    for i in ele:
+        ## We will be getting "" in case of muliple spaces on using .split(" ")
+        if i == "":
+            continue
+        
+        else:
+            count+= 1
+            
+    return count
+```
+
+## Coding Exercise 48: Remove Duplicates in a string
+<img width="619" height="654" alt="image" src="https://github.com/user-attachments/assets/17dcbddf-f18e-4b3c-ae49-fa35c651e561" />
+
+```python
+def remove_duplicates(s):
+    """
+    Function to remove duplicate characters from the input string.
+    
+    Parameters:
+    s (str): The input string from which duplicates need to be removed.
+    
+    Returns:
+    str: The modified string with duplicates removed.
+    """
+    # Your code here
+    
+    res_string = ""
+    
+    for i in s:
+        if i in res_string:
+            continue
+        else:
+            res_string = res_string + i
+            
+    return res_string
+```
+
+## Coding Exercise 49: Count consonants in a string
+<img width="639" height="729" alt="image" src="https://github.com/user-attachments/assets/8d4434f0-aa29-4232-988c-a0c044e9f6aa" />
+
+```python
+def count_consonants(s):
+    """
+    Function to count the number of consonants in the input string.
+    
+    Parameters:
+    s (str): The input string to check for consonants.
+    
+    Returns:
+    int: The count of consonants in the input string.
+    """
+    # Your code here
+    
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    count = 0
+    for i in s.lower():
+        ## Alternatively for checking alpha we can also use  if ('a' <= char <= 'z') or ('A' <= char <= 'Z'):
+        if i not in vowels and i.isalpha() == True:
+            count = count + 1
+            
+        else:
+            continue
+        
+    return count
+```
+
+## Coding Exercise 50: Check for anagrams
+<img width="641" height="764" alt="image" src="https://github.com/user-attachments/assets/52f779f2-a0a3-4273-b509-bf83f2a29430" />
+
+```python
+def is_anagram(s, t):
+    """
+    Function to check if t is an anagram of s.
+    
+    Parameters:
+    s (str): The first input string.
+    t (str): The second input string.
+    
+    Returns:
+    bool: True if t is an anagram of s, False otherwise.
+    """
+    # Your code here
+    
+    # for i in t:
+    #     if i in s:
+    #         continue
+    #     else:
+    #         return False
+            
+    # return True
+    
+    ## Above logic will fail in the case for s="ssp" t="pps" or t="ppps". Let's improve it below
+    
+    ##To check if two strings are anagrams, they must have the same number of characters and the same character frequencies. You can count the occurrences of each character using loops.
+    
+    s_occur = dict()
+    t_occur = dict()
+    
+    for i in s:
+        if i in s_occur:
+            s_occur[i] = s_occur[i] + 1
+            
+        else:
+            s_occur[i] = 1
+            
+    for j in t:
+        if j in t_occur:
+            t_occur[j] = t_occur[j] + 1
+            
+        else:
+            t_occur[j] = 1
+            
+    ## Above 2 loops can run as single loop if both are having same length
+            
+    if s_occur == t_occur:
+        return True
+        
+    else:
+        return False
+```
+
+## Coding Exercise 51: Check Subsequence (Important matched_flag)
+<img width="652" height="770" alt="image" src="https://github.com/user-attachments/assets/81905bf7-8920-4bca-b125-da5b92016f0d" />
+
+```python
+def is_subsequence(s, t):
+    """
+    Function to check if t is a subsequence of s.
+    
+    Parameters:
+    s (str): The original string.
+    t (str): The target subsequence string.
+    
+    Returns:
+    bool: True if t is a subsequence of s, False otherwise.
+    """
+    # Your code here
+    
+    ## Subsequence  = Subset without changing the order
+    
+    ## When there is a match in the parent string then we have to do the next matching starting the next index(for maintaining seq)
+    
+    ## Sol^ 1: My Custom Logic
+    # new_index = 0
+    # match = False
+    # for i in range(len(t)):
+    #     for j in range(new_index,len(s)):
+    #         if t[i] == s[j]:
+    #             new_index = j + 1
+    #             match = True
+    #             break
+    #         else:
+    #             continue
+        
+    #     if match == True:
+    #         match = False
+    #         continue
+        
+    #     else:
+    #         return False
+            
+    # return True
+    
+    ## Sol^ 2: Using 2 pointer approach
+    
+    i = 0  ## pointer for s
+    j = 0  ## pointer for t
+    
+    matched = 0  ## Important
+    while(i<len(s) and j<len(t)):
+        if t[j] == s[i]:
+            i = i + 1
+            j = j + 1
+            matched = matched + 1
+            
+        else:
+            i = i + 1
+            
+    if matched == len(t):
+        return True
+        
+    else:
+        return False
+```
+
+## Coding Exercise 52: Check for Substring
+<img width="650" height="788" alt="image" src="https://github.com/user-attachments/assets/7e92d969-f779-4c4d-95a5-4374c809a0d1" />
+
+```python
+
+```
+
+## Coding Exercise 53: Length of the Longest Word
+<img width="652" height="732" alt="image" src="https://github.com/user-attachments/assets/5a01e0c6-0a05-44c2-8e31-48ba77552446" />
+
+```python
+def longest_word_length(s):
+    """
+    Function to find the length of the longest word in a string without using built-in functions.
+    
+    Parameters:
+    s (str): The input string.
+    
+    Returns:
+    int: The length of the longest word.
+    """
+    # Your code here
+    
+    max_len = 0  ## or max_len = float(-inf)
+    for i in s.split(" "):
+        if len(i) > max_len:
+            max_len = len(i)
+            
+    return max_len
+```
 
 
 
