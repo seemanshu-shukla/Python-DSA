@@ -376,7 +376,39 @@ def is_subsequence(s, t):
 <img width="650" height="788" alt="image" src="https://github.com/user-attachments/assets/7e92d969-f779-4c4d-95a5-4374c809a0d1" />
 
 ```python
-
+def is_substring(s, t):
+    """
+    Function to check if string t is a substring of string s without using built-in functions and recursion.
+    
+    Parameters:
+    s (str): The main string.
+    t (str): The string to check as a substring.
+    
+    Returns:
+    bool: True if t is a substring of s, False otherwise.
+    """
+    len_s = 0
+    len_t = 0
+    
+    # Calculate lengths of s and t
+    while s[len_s:]:
+        len_s += 1
+    while t[len_t:]:
+        len_t += 1
+    
+    # If t is longer than s, it cannot be a substring
+    if len_t > len_s:
+        return False
+ 
+    # Check for substring
+    for i in range(len_s - len_t + 1):  # Only check up to len_s - len_t
+        j = 0
+        while j < len_t and s[i + j] == t[j]:  # Check each character
+            j += 1
+        if j == len_t:  # If we matched the whole t
+            return True
+ 
+    return False  # t is not a substring of s
 ```
 
 ## Coding Exercise 53: Length of the Longest Word
